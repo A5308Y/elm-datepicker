@@ -7,6 +7,7 @@ module DatePicker
         , init
         , update
         , view
+        , isOpen
         , getDate
         , setDate
         , setFilter
@@ -169,6 +170,16 @@ prepareDates date ({ settings } as model) =
             | currentMonth = date
             , currentDates = datesInRange settings.firstDayOfWeek start end
         }
+
+
+{-|
+Expose if the DatePicker is open
+-}
+isOpen : DatePicker -> Bool
+isOpen datePicker =
+    case datePicker of
+        DatePicker model ->
+            model.open
 
 
 {-|
